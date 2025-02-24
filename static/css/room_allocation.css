@@ -1,0 +1,101 @@
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.allocation-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+select,
+input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.room-status {
+    margin-top: 20px;
+}
+
+.room-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.room {
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.room.booked {
+    background: #d9534f !important;
+    cursor: not-allowed;
+}
+
+.room.selected {
+    background: #FFD700 !important;
+    color: black;
+}
+.footer{
+    display: none;
+}
+form>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #007bff;
+    height: 35px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: small;
+}
+form>a:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #0066d3;
+    height: 35px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: small;
+}

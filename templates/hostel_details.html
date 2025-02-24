@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Hostels</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/hostel_details.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.nav-link').click(function () {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</head>
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<br>
+    <header>
+        <h1>🏡 Campus Hostels</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#hostel1">🏠 ARISTOTLE</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#hostel2">🏠 FRANKLIN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#hostel3">🏠 COLOUMBUS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#hostel4">🏠 ARCHMIDIS</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content container">
+<!-- Hostel 1 - Alpha Residency -->
+<div class="tab-pane fade show active" id="hostel1">
+    <h2 class="text-center my-4">Hostel 1 - ARISTOTLE</h2>
+    <div class="row g-4 align-items-stretch">
+        <!-- Facilities Section (Left Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">Facilities</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">✅ Spacious AC & Non-AC Rooms</li>
+                        <li class="list-group-item">✅ 24/7 High-Speed Wi-Fi</li>
+                        <li class="list-group-item">✅ Study Lounge & Library</li>
+                    </ul>
+                    <div class="info-section mt-3">
+                        <h6>👨‍⚕️ Caretaker</h6>
+                        <p>24/7 resident caretaker available for assistance.</p>
+                        <h6>🛡 Security</h6>
+                        <p>CCTV Surveillance & Biometric Entry System.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Image Slider (Right Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div id="carouselHostel1" class="carousel slide h-100" data-bs-ride="carousel">
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item active">
+                            <img src="../static/images/hostel_details1.jpg" class="d-block w-100 img-fluid" alt="Hostel 1 Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room1.jpg" class="d-block w-100 img-fluid" alt="Hostel 1 Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room2.jpg" class="d-block w-100 img-fluid" alt="Hostel 1 Image 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHostel1" data-bs-slide="prev" aria-label="Previous">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHostel1" data-bs-slide="next" aria-label="Next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+ 
+<!-- Hostel 2 - Beta Residency -->
+<div class="tab-pane fade" id="hostel2">
+    <h2 class="text-center my-4">Hostel 2 - FRANKLIN</h2>
+    <div class="row g-4 align-items-stretch">
+        <!-- Facilities Section (Left Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">Facilities</h5>
+                    <ul class="details-list">
+                        <li>✅ Indoor & Outdoor Sports Area</li>
+                        <li>✅ Gym & Fitness Center</li>
+                        <li>✅ Centralized Water Purifier</li>
+                    </ul>
+                    <div class="info-section">
+                        <h6>👨‍⚕️ Caretaker</h6>
+                        <p>Available for emergency needs & guidance.</p>
+                        <h6>🛡 Security</h6>
+                        <p>RFID Card Access & Fire Safety Equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Image Slider (Right Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div id="carouselHostel2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../static/images/hostel_details3.jpg" class="d-block w-100" alt="Hostel 2 Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room3.jpg" class="d-block w-100" alt="Hostel 2 Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room4.jpg" class="d-block w-100" alt="Hostel 2 Image 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHostel2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHostel2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Hostel 3 - Gamma Residency -->
+<div class="tab-pane fade" id="hostel3">
+    <h2 class="text-center my-4">Hostel 3 - COLOUMBUS</h2>
+    <div class="row g-4 align-items-stretch">
+        <!-- Facilities Section (Left Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">Facilities</h5>
+                    <ul class="details-list">
+                        <li>✅ Fully Furnished Common Rooms</li>
+                        <li>✅ Laundry & Dry Cleaning Services</li>
+                        <li>✅ 24/7 High-Speed Wi-Fi</li>
+                        <li>✅ Dedicated Study Lounge</li>
+                    </ul>
+                    <div class="info-section">
+                        <h6>👨‍⚕️ Caretaker</h6>
+                        <p>Round-the-clock availability for assistance.</p>
+                        <h6>🛡 Security</h6>
+                        <p>CCTV Monitoring, RFID Entry, and Fire Safety Systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Image Slider (Right Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div id="carouselHostel3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../static/images/hostel_details4.jpg" class="d-block w-100" alt="Hostel 3 Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room5.jpg" class="d-block w-100" alt="Hostel 3 Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room6.jpg" class="d-block w-100" alt="Hostel 3 Image 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHostel3" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHostel3" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Hostel 4 - Delta Residency -->
+<div class="tab-pane fade" id="hostel4">
+    <h2 class="text-center my-4">Hostel 4 - ARCHMIDIS</h2>
+    <div class="row g-4 align-items-stretch">
+        <!-- Facilities Section (Left Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">Facilities</h5>
+                    <ul class="details-list">
+                        <li>✅ Private Balconies & Airy Rooms</li>
+                        <li>✅ 24/7 High-Speed Wi-Fi</li>
+                        <li>✅ Study Lounge & Library</li>
+                        <li>✅ In-House Laundry & Housekeeping</li>
+                    </ul>
+                    <div class="info-section">
+                        <h6>👨‍⚕️ Caretaker</h6>
+                        <p>Available round the clock for emergencies and assistance.</p>
+                        <h6>🛡 Security</h6>
+                        <p>CCTV Surveillance, RFID Card Access & Fire Safety Equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Image Slider (Right Side) -->
+        <div class="col-md-6 d-flex">
+            <div class="card hostel-card flex-fill">
+                <div id="carouselHostel4" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../static/images/hostel_details5.jpg" class="d-block w-100" alt="Hostel 4 Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room7.jpg" class="d-block w-100" alt="Hostel 4 Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../static/images/room8.jpg" class="d-block w-100" alt="Hostel 4 Image 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHostel4" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHostel4" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+     
+
+</body>
+</html>

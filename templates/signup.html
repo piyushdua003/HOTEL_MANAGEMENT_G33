@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Signup Page </title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login_signup.css">
+    <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ 'flash-message-' + category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        <form class="signup" action="{{url_for('signup')}}" method="POST">
+            <h3 class="title">User  Signup</h3>
+            
+
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input type="text" placeholder="Username" id="username" name="username" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-mail-fill"></i>
+                <input type="email" placeholder="Email" id="email" name="email" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <input type="submit" value="Signup" class="signup-btn" name="submit">
+            
+
+            <div class="terms"><a href="{{url_for('login')}}" >Already have an account? Login</a> </div>
+       
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+        </form>
+    </div>
+    {%endblock%}
+</body>
+</html>

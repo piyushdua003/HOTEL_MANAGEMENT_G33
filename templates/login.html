@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page </title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login_signup.css">
+    <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+     {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ 'flash-message-' + category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+    <div class="container">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        <form class="login" action="{{url_for('login')}}" method="POST">
+            <h3 class="title">User  Login</h3>
+           
+
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <label for="role"></label>
+                <select name="role" id="role" class="form-control" required>
+                    <option value=""> Choose Role </option>
+                    <option value="user">user</option>
+                    <option value="admin">admin</option>
+                </select>
+    
+            </div>
+            <input type="submit" value="Login" class="login-btn" name="submit">
+
+            <div><a href="#" class="forgot">Forgot Username/Password?</a>
+            </div>
+            <br><br><br>
+            <div class="create">
+                <a href="{{url_for('signup')}}">Create Your Account</a>
+                <i class="ri-arrow-right-fill"></i>
+            </div>
+        </form>
+    </div>
+    {%endblock%}
+</body>
+</html>

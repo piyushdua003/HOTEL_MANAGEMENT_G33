@@ -1,0 +1,50 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .coming-soon {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .footer{
+    display: none;
+  }
+  a{
+    border: solid 1px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+  }

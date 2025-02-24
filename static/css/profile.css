@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px;
+}
+.profile-sidebar {
+    width: 30%;
+    text-align: center;
+    padding: 25px;
+    border-right: 2px solid #eee;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-sidebar h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #444;
+}
+.profile-sidebar p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+.profile-sidebar .about-me {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+}
+.profile-sidebar .about-me h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.profile-sidebar .about-me p {
+    margin-bottom: 15px;
+}
+.profile-sidebar .edit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    transition: 0.3s;
+}
+.profile-sidebar .edit-btn:hover {
+    background-color: #0056b3;
+}
+.profile-sidebar .edit-form {
+    display: none;
+    margin-top: 15px;
+}
+.profile-sidebar .edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    resize: none;
+}
+.profile-main {
+    width: 70%;
+    padding: 20px;
+}
+.profile-main h2 {
+    font-size: 22px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    color: #333;
+}
+.profile-main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.profile-main ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+.profile-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.edit {
+    background-color: #007bff;
+    color: white;
+}
+.logout {
+    background-color: #dc3545;
+    color: white;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+.logout:hover {
+    background-color: #c82333;
+}
+.edit:hover {
+    background-color: #0056b3;
+}
+.footer{
+    display: none;
+}

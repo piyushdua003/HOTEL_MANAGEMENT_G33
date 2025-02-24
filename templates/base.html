@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Dropdowns</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar" id="navbar">
+        {% if 'username' in session %}
+                <a href="{{url_for('profile')}}" class="logo">{{ session['username'] }}</a>
+            {% else %}
+                <!-- <a href="{{url_for('login')}}">Login</a> -->
+                <div class="logo">CampusNest</div>
+                <!-- <a href="{{url_for('signup')}}">Signup</a> -->
+            {% endif %}
+        
+        <div>
+            <a href="{{url_for('home')}}">Home</a>
+
+            <div class="dropdown">
+                <a href="#">Services<i class="fa-solid fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="{{url_for('room_allocation')}}">Room Allocation</a>
+                    <a href="#">Fee Payment</a>
+                    <a href="{{url_for('complaint_and_maintenance')}}">Complaint/Maintenance</a>
+                    <!-- <a href="#">Service 4</a> -->
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="{{url_for('hostel_details')}}">Hostel Details</a>
+                <!-- <div class="dropdown-content">
+                    <a href="#">Campus 1</a>
+                    <a href="#">Campus 2</a>
+                    <a href="#">Campus 3</a>
+                    <a href="#">Campus 4</a>
+                </div> -->
+            </div>
+
+
+            <a href="{{url_for('feedback')}}">Feedback</a>
+            <a href="{{url_for('about')}}">About</a>
+
+            {% if 'username' in session %}
+                <!-- <a href="{{url_for('profile')}}">Profile ({{ session['username'] }})</a> -->
+                <!-- <a href="{{url_for('logout')}}">Logout</a> -->
+            {% else %}
+                <a href="{{url_for('login')}}">Login</a>
+                <!-- <a href="{{url_for('signup')}}">Signup</a> -->
+            {% endif %}
+        </div>
+    </div><br><br>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            let navbar = document.getElementById("navbar");
+            if (window.scrollY > 10) { // Detects even small scroll
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    {%block content%}
+    {%endblock%}
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Providing the best hostel management services with efficiency and ease.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{{url_for('terms_and_conditions')}}">Terms & Conditions</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: campusnest@gmail.com</p>
+                <p>Phone: +91 9876543210</p>
+            </div>
+            <div class="footer-section">
+                <h3>CampusNest</h3>
+                <p>Subscribe to campusnest for updates.</p>
+                <input type="email" placeholder="Enter your email" style="padding: 5px; width: 80%; border-radius: 5px; border: 1px solid #ccc;">
+                <button style="padding: 5px 10px; margin-top: 5px; border: none; background: black; color: white; border-radius: 5px; cursor: pointer;">Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hostel Management System | CampusNest | All Rights Reserved</p>
+            <p><a href="#top" class="back-to-top">Back to Top</a></p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

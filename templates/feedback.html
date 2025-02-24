@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback CampusNest</title>
+    <link rel="stylesheet" href="../static/css/feedback.css">
+</head>
+
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+
+    <br><br>
+    <div class="container">
+        <div class="left-section">
+            <img src="../static/images/feedback2.jpg" alt="Side Image"><br><br><br><br><br>
+            <div class="additional-content">
+                <p>Have any issues or suggestions? Feel free to share your feedback with us. "Your feedback matters! We strive to make CampusNest a better place for everyone. Let us know about your experiences, any issues you've faced, or suggestions for improvement. Your valuable input helps us enhance our services and provide a comfortable stay. Thank you for sharing your thoughts with us!"</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <img src="../static/images/feedback1.png" alt="Feedback">
+            <form>
+                <input type="text" name="first_name" placeholder="First Name*" required>
+                <input type="text" name="last_name" placeholder="Last Name*" required>
+                <input type="email" name="email" placeholder="Email*" required>
+                
+                <label>Our Environment*</label>
+                <select required>
+                    <option selected disabled>Choose</option>
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Bad</option>
+                </select>
+                
+                <label>How Would you rate Our Services (out of 5)?*</label>
+                <select>
+                    <option selected disabled>Choose</option>
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+                
+                <label>How would you rate Our Services (Description)?</label>
+                <textarea name="descr" placeholder="Description" required rows="4"></textarea>
+                
+                <label>From which Hostel are you?</label>
+                <select>
+                    <option selected disabled>Select Hostel</option>
+                    <option>ARISTOTLE</option>
+                    <option>FRANKLIN</option>
+                    <option>COLOUMBUS</option>
+                    <option>ARCHIMIDIS</option>
+                    <option>Others</option>
+                </select>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Hostel Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../static/css/about.css">
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <div class="container content-section">
+        <h2 class="text-center">Our Services</h2><br>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="box p-4 shadow rounded">
+                    <img src="../static/images/about1.webp" class="img-fluid rounded mb-2" width="100%" />
+                    <h4>User Friendly Site</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box p-4 shadow rounded">
+                    <img src="../static/images/about2.webp" class="img-fluid rounded mb-2" width="100%" />
+                    <h4>200+ Hostels Registered</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box p-4 shadow rounded">
+                    <img src="../static/images/about3.webp" class="img-fluid rounded mb-2" width="100%" />
+                    <h4>150+ Reviews</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box p-4 shadow rounded">
+                    <img src="../static/images/about4.webp" class="img-fluid rounded mb-2" width="100%" />
+                    <h4>24/7 Customer Support</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container team-section text-center">
+        <h3>Our Management Team</h3><br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="p-3 shadow rounded animate__animated animate__fadeInUp">
+                    <img src="../static/images/piyush.jpg" class="rounded-circle" width="150">
+                    <h5>Piyush Dua</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 shadow rounded animate__animated animate__fadeInUp animate__delay-1s">
+                    <img src="../static/images/abhinav2.jpg" class="rounded-circle" width="150">
+                    <h5>Abhinav</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 shadow rounded animate__animated animate__fadeInUp animate__delay-2s">
+                    <img src="../static/images/vansh.jpg" class="rounded-circle" width="150">
+                    <h5>Vansh</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 shadow rounded animate__animated animate__fadeInUp animate__delay-3s">
+                    <img src="../static/images/duluu.jpg" class="rounded-circle" width="150">
+                    <h5>Dilshan</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container rating-section text-center">
+        <h3>Users Ratings & Reviews</h3><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="p-3 shadow rounded">
+                    <p>"Great site with amazing facilities!"</p>
+                    <h5>- Lakshya</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 shadow rounded">
+                    <p>"Excellent functionality and features!"</p>
+                    <h5>- Sujay</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 shadow rounded">
+                    <p>"Best management site experience ever!"</p>
+                    <h5>- Aslesha</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>

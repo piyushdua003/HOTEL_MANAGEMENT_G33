@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="../static/css/payment.css">
+    <script>
+        function toggleInput(targetId) {
+            document.querySelectorAll('.toggle-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(targetId).classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <div class="container">
+        <div class="payment-summary">
+            <h3>Payment Summary</h3>
+            <p>Hostel Price: ₹70,000</p>
+            <p>Maintenance Fee: ₹4,000</p>
+            <p>Other Charges: ₹500</p>
+            <hr>
+            <p><strong>Total Amount: ₹74,500</strong></p>
+        </div>
+        
+        <div class="payment-methods">
+            <h2>Select Payment Method</h2>
+            <h3>UPI Payments</h3>
+            <label><input type="radio" name="payment" onclick="toggleInput('upiIdInput')"> Pay with UPI ID or Number</label>
+            <div id="upiIdInput" class="toggle-section hidden"><input type="text" placeholder="Enter UPI ID or Number"></div>
+            <label><input type="radio" name="payment" onclick="toggleInput('otherUpiApps')"> Other UPI Apps</label>
+            <div id="otherUpiApps" class="toggle-section hidden">
+                <select>
+                    <option>Paytm</option>
+                    <option>PhonePe</option>
+                    <option>BHIM UPI</option>
+                    <option>FamPay</option>
+                </select>
+            </div>
+            
+            <h3>Cards</h3>
+            <label><input type="radio" name="payment" onclick="toggleInput('cardInput')"> Credit/Debit Card</label>
+            <div id="cardInput" class="toggle-section hidden">
+                <input type="text" placeholder="Enter Card Number">
+                <input type="text" placeholder="Expiry Date (MM/YY)">
+                <input type="text" placeholder="CVV">
+            </div>
+            
+            <h3>More Ways to Pay</h3>
+            <label><input type="radio" name="payment" onclick="toggleInput('netBanking')"> Net Banking</label>
+            <div id="netBanking" class="toggle-section hidden">
+                <select>
+                    <option>SBI</option>
+                    <option>HDFC</option>
+                    <option>ICICI</option>
+                    <option>Axis Bank</option>
+                    <option>Kotak Mahindra</option>
+                    <option>PNB</option>
+                    <option>Bank of Baroda</option>
+                    <option>Canara Bank</option>
+                    <option>Union Bank</option>
+                    <option>Yes Bank</option>
+                </select>
+            </div>
+            <label><input type="radio" name="payment" value="gift_card"> Pay with Gift Card</label>
+            <label><input type="radio" name="payment" value="voucher"> Voucher</label>
+            <button class="pay-button">Proceed to Pay</button>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>

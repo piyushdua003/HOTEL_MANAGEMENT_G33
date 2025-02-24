@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="../static/css/profile.css">
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+
+    <div class="container">
+        <div class="profile-sidebar">
+            <img src="../static/images/profile1.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>{{ user.name }}</h1>
+            <p>"Welcome to CampusNest, a Hostel Management System that simplifies room allocation, fee payments, and hostel-related services."</p>
+            
+            <!-- About Me Section -->
+            <div class="about-me">
+                <h3>About Me</h3>
+                <p id="about-me-text">I am passionate about technology and management. I love learning new skills, solving problems, and staying active. My interests include coding, photography, and traveling.</p>
+                <button class="edit-btn" id="edit-btn">Edit</button>
+                
+                <!-- Edit Form -->
+                <div class="edit-form" id="edit-form">
+                    <textarea id="about-me-input" rows="4">I am passionate about technology and management. I love learning new skills, solving problems, and staying active. My interests include coding, photography, and traveling.</textarea>
+                    <button class="edit-btn" id="save-btn">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="profile-main">
+            <h2>Hostel Details</h2>
+            <ul>
+                <li><strong>Room Number:</strong> 13</li>
+                <li><strong>Block:</strong> A</li>
+                <li><strong>Hostel Name:</strong> Campus 1</li>
+                <li><strong>Check-in Date:</strong> January 2024</li>
+            </ul>
+            <h2>Account Details</h2>
+            <ul>
+                <li><strong>Username:</strong> {{ user.username }}</li>
+                <li><strong>Email:</strong> {{ user.email }}</li>
+                <li><strong>Location:</strong> India</li>
+                <li><strong>Member Since:</strong> January 2024</li>
+            </ul>
+            <div class="profile-actions">
+                <button class="btn edit">Edit Profile Photo</button>
+                <a href="{{ url_for('logout') }}"><button class="btn logout">Logout</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the elements
+        const editBtn = document.getElementById("edit-btn");
+        const editForm = document.getElementById("edit-form");
+        const aboutMeText = document.getElementById("about-me-text");
+        const aboutMeInput = document.getElementById("about-me-input");
+        const saveBtn = document.getElementById("save-btn");
+
+        // Show edit form on Edit button click
+        editBtn.addEventListener("click", () => {
+            editForm.style.display = "block";
+            aboutMeText.style.display = "none";
+            editBtn.style.display = "none";
+        });
+
+        // Save the edited About Me text
+        saveBtn.addEventListener("click", () => {
+            const updatedText = aboutMeInput.value;
+            aboutMeText.textContent = updatedText;
+            aboutMeText.style.display = "block";
+            editForm.style.display = "none";
+            editBtn.style.display = "inline-block";
+        });
+    </script>
+    {%endblock%}
+</body>
+</html>

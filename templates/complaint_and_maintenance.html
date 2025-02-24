@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint & Maintenance</title>
+    <link rel="stylesheet" href="../static/css/complaint_and_maintainance.css">
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <br><br><br>
+    <div class="container">
+        <h2>Complaint & Maintenance</h2>
+        
+        <div class="section">
+            <h3>Maintenance Request</h3>
+            <form id="maintenanceForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="maintenanceName" required>
+                
+                <label for="room">Room Number:</label>
+                <input type="text" id="maintenanceRoom" required>
+                
+                <label for="maintenanceType">Maintenance Type:</label>
+                <select id="maintenanceType" required>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <label for="details">Details:</label>
+                <textarea id="maintenanceDetails" rows="4" required></textarea>
+                
+                <button type="submit">Submit Maintenance Request</button>
+            </form>
+        </div>
+        
+        <div class="section">
+            <h3>Complaint Submission</h3>
+            <form id="complaintForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="room">Room Number:</label>
+                <input type="text" id="room" required>
+                
+                <label for="complaintType">Complaint Type:</label>
+                <select id="complaintType" required>
+                    <option value="Noise">Noise</option>
+                    <option value="Cleanliness">Cleanliness</option>
+                    <option value="Staff Behavior">Staff Behavior</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <label for="complaint">Complaint Details:</label>
+                <textarea id="complaint" rows="4" required></textarea>
+                
+                <button type="submit">Submit Complaint</button>
+            </form>
+        </div>
+        
+        <div class="section">
+            <h3>Successfully Submitted Maintenance Requests</h3>
+            <ul id="maintenanceList"></ul>
+        </div>
+        
+        <div class="section">
+            <h3>Successfully Submitted Complaints</h3>
+            <ul id="complaintList"></ul>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const room = document.getElementById('room').value;
+            const complaintType = document.getElementById('complaintType').value;
+            const complaint = document.getElementById('complaint').value;
+            
+            if (name && room && complaint) {
+                const complaintList = document.getElementById('complaintList');
+                const listItem = document.createElement('li');
+                listItem.textContent = `${name} (Room ${room}) - ${complaintType}: ${complaint}`;
+                complaintList.appendChild(listItem);
+                
+                document.getElementById('complaintForm').reset();
+            }
+        });
+        
+        document.getElementById('maintenanceForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('maintenanceName').value;
+            const room = document.getElementById('maintenanceRoom').value;
+            const maintenanceType = document.getElementById('maintenanceType').value;
+            const details = document.getElementById('maintenanceDetails').value;
+            
+            if (name && room && details) {
+                const maintenanceList = document.getElementById('maintenanceList');
+                const listItem = document.createElement('li');
+                listItem.textContent = `${name} (Room ${room}) - ${maintenanceType}: ${details}`;
+                maintenanceList.appendChild(listItem);
+                
+                document.getElementById('maintenanceForm').reset();
+            }
+        });
+    </script>
+    {%endblock%}
+</body>
+</html>

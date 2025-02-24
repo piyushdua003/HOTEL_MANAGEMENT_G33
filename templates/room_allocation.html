@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Allocation</title>
+    <link rel="stylesheet" href="../static/css/room_allocation.css">
+    <style>
+        .room-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .room {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100px;
+        }
+
+        .room.booked {
+            background-color: #ffcccc;
+            cursor: not-allowed;
+        }
+
+        .room.selected {
+            background-color: #ccffcc;
+        }
+    </style>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container">
+        <h2>Room Allocation</h2>
+        <form class="allocation-form" id="allocation-form">
+            <label for="hostel">Select Hostel:</label>
+            <select id="hostel" name="hostel">
+                <option value="hostel-1">ARISTOTLE</option>
+                <option value="hostel-2">FRANKLIN</option>
+                <option value="hostel-3">COLOUMBUS</option>
+                <option value="hostel-4">ARCHIMIDIS</option>
+            </select>
+
+            <label for="floor">Select Floor:</label>
+            <select id="floor" name="floor">
+                <option value="1">Floor 1</option>
+                <option value="2">Floor 2</option>
+                <option value="3">Floor 3</option>
+            </select>
+
+            <label for="student-name">Student Name:</label>
+            <input type="text" id="student-name" name="student-name" required>
+
+            <button type="submit">Allocate Room</button><br>
+            <a href="{{url_for('payment')}}">Proceed to Pay</a>
+        </form>
+
+        <div class="room-status">
+            <h3>4 Sharing Room Availability</h3>
+            <div class="room-grid" id="four-sharing-grid"></div>
+            <h3>Double Sharing Room Availability</h3>
+            <div class="room-grid" id="double-sharing-grid"></div>
+            <h3>Single Seater Room Availability</h3>
+            <div class="room-grid" id="single-seater-grid"></div>
+            <div id="no-rooms-message"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let selectedRoom = null;
+            let selectedRoomType = null;
+
+            function fetchAvailableRooms() {
+                const selectedHostel = document.getElementById('hostel').value;
+                const selectedFloor = document.getElementById('floor').value;
+
+                fetch(`/get_available_rooms?hostel=${selectedHostel}&floor=${selectedFloor}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const availableRooms = data.available || {};
+                        const bookedRooms = data.booked || [];
+
+                        populateRoomGrid('four-sharing-grid', availableRooms['four'] || [], bookedRooms, 'four');
+                        populateRoomGrid('double-sharing-grid', availableRooms['double'] || [], bookedRooms, 'double');
+                        populateRoomGrid('single-seater-grid', availableRooms['single'] || [], bookedRooms, 'single');
+                    })
+                    .catch(error => console.error('Error fetching rooms:', error));
+            }
+
+            // Add event listeners to refresh rooms when hostel or floor changes
+            document.getElementById('hostel').addEventListener('change', fetchAvailableRooms);
+            document.getElementById('floor').addEventListener('change', fetchAvailableRooms);
+
+            function populateRoomGrid(gridId, rooms, bookedRooms, roomType) {
+                const grid = document.getElementById(gridId);
+                grid.innerHTML = '';
+
+                if (rooms.length === 0) {
+                    const noRoomsMessage = document.getElementById('no-rooms-message');
+                    noRoomsMessage.textContent = 'No available rooms';
+                    noRoomsMessage.style.display = 'block';
+                } else {
+                    rooms.forEach(room => {
+                        const roomDiv = document.createElement('div');
+                        roomDiv.classList.add('room');
+                        roomDiv.textContent = `Room ${room.number} (${room.beds_left} left)`;
+                        roomDiv.dataset.roomNumber = room.number;
+                        roomDiv.dataset.roomType = roomType;
+
+                        if (bookedRooms.includes(room.number)) {
+                            roomDiv.classList.add('booked');
+                        } else {
+                            roomDiv.addEventListener('click', function () {
+                                selectRoom(roomDiv);
+                            });
+                        }
+
+                        grid.appendChild(roomDiv);
+                    });
+                }
+            }
+
+            function selectRoom(roomDiv) {
+                if (roomDiv.classList.contains('booked')) return;
+
+                if (selectedRoom) {
+                    selectedRoom.classList.remove('selected');
+                }
+                selectedRoom = roomDiv;
+                selectedRoom.classList.add('selected');
+                selectedRoomType = roomDiv.dataset.roomType;
+            }
+
+            document.getElementById("allocation-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!selectedRoom) {
+                    alert("Please select a room first.");
+                    return;
+                }
+
+                const formData = new FormData(event.target);
+                formData.append("room-number", selectedRoom.dataset.roomNumber);
+                formData.append("room-type", selectedRoom.dataset.roomType);
+
+                fetch("/room_allocation", {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        if (data.success) {
+                            fetchAvailableRooms();
+                            selectedRoom.classList.remove('selected');
+                            selectedRoom.classList.add('booked');
+                            selectedRoom = null;
+                            selectedRoomType = null;
+                        }
+                    })
+                    .catch(error => console.error("Error allocating room:", error));
+            });
+
+            fetchAvailableRooms();
+        });
+    </script>
+    {% endblock %}
+</body>
+
+</html>

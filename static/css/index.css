@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow-x: hidden;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 10;
+}
+.text-section {
+    width: 50%;
+    text-align: left;
+}
+.text-section h1 {
+    font-size: 2.5em;
+    color: #222;
+}
+.text-section p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+.buttons {
+    margin-top: 20px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+.btn-orange {
+    background-color: #ff7f50;
+}
+.btn-orange:hover {
+    background-color: #ff784d;
+}
+.btn-green {
+    background-color: #00b200;
+}
+.btn-green:hover {
+    background-color: #008f00;
+}
+.image-section {
+    width: 50%;
+}
+.image-section img {
+    max-width: 100%;
+}
+.container2 {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+h1 {
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 20px;
+}
+#para {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 20px;
+}
+.btn-container2 {
+    margin-top: 30px;
+}
+.btn2 {
+    background-color: #ff7f50; /* Same as .btn-orange */
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px; /* Match the border-radius */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn2:hover {
+    background-color: #ff784d; /* Slightly darker shade for hover effect */
+}
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+}
+.feature-text {
+    width: 50%;
+    text-align: left;
+    padding-left: 30px;
+}
+.feature-text h2 {
+    font-size: 2em;
+    color: #222;
+    border-left: 4px solid #ff7f50;
+    padding-left: 10px;
+}
+.feature-text p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+.feature-text ul {
+    padding: 0;
+    list-style: none;
+}
+.feature-text ul li {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.feature-text ul li::before {
+    content: "✔";
+    color: #0073e6;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.feature-image {
+    width: 50%;
+}
+.feature-image img {
+    max-width: 100%;
+}
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-btn img {
+    width: 20px;
+    margin-right: 10px;
+}

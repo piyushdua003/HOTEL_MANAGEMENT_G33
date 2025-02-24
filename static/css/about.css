@@ -1,0 +1,35 @@
+:root {
+    --teal: #2ec1ac;
+    --teal-dark: #279e8c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white
+}
+
+.content-section {
+    padding: 50px 0;
+}
+
+.team-section {
+    background: white;
+    padding: 60px 0;
+}
+
+.rating-section {
+    background: white;
+    padding: 50px 0;
+}
+
+.box {
+    border-top: 4px solid var(--teal);
+    transition: transform 0.3s;
+}
+.box:hover {
+    transform: scale(1.05);
+    border-top-color: var(--teal-dark);
+}
+.footer{
+    display: none;
+}
